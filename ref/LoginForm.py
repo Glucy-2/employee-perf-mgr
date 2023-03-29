@@ -1,7 +1,7 @@
 from Ui_Login import Ui_LoginForm
 from PyQt5.QtWidgets import QMessageBox, QWidget, QApplication
 from PyQt5.QtCore import pyqtSignal, QCoreApplication, Qt
-from MainForm import MainForm
+from ref.MainForm import MainForm
 from RegForm import RegForm
 import sys
 
