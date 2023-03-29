@@ -19,6 +19,24 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QLineEdit" name="username_line">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>40</y>
+     <width>581</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+  </widget>
   <widget class="QLineEdit" name="password_line">
    <property name="geometry">
     <rect>
@@ -35,6 +53,24 @@
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="login_btn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>350</y>
+     <width>271</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>登录</string>
    </property>
   </widget>
   <widget class="QLabel" name="username_label">
@@ -73,57 +109,6 @@
     <string>密码</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="username_line">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>40</y>
-     <width>581</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="login_btn">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>350</y>
-     <width>271</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>登录</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="register_btn">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>350</y>
-     <width>261</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>注册</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="tip_label">
    <property name="geometry">
     <rect>
@@ -145,6 +130,12 @@
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
+  <zorder>username_line</zorder>
+  <zorder>password_line</zorder>
+  <zorder>login_btn</zorder>
+  <zorder>username_label</zorder>
+  <zorder>password_label</zorder>
+  <zorder>tip_label</zorder>
  </widget>
  <resources/>
  <connections/>
