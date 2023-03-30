@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>员工业绩管理</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="main_table">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -180,7 +180,7 @@
      <string>读取</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="savefile_btn">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -592,7 +592,7 @@
      <string>季度：</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="id_search_edit">
     <property name="geometry">
      <rect>
       <x>80</x>
