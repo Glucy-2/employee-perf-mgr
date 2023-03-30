@@ -20,10 +20,10 @@ def error(msg, info, show_cancel_btn = False): # 显示错误对话框
     msg_box.setDefaultButton(QMessageBox.Ok) # 设置默认按钮
     return_value = msg_box.exec_() # 显示对话框并获取返回值
     if return_value == QMessageBox.Ok: # 如果点击了确认按钮
-        app.quit()
+        msg_box.close()
         return True
     else: # 如果点击了取消按钮
-        app.quit()
+        msg_box.close()
         return False
 
 def warning(msg, info, show_cancel_btn = False): # 显示警告对话框
@@ -41,10 +41,10 @@ def warning(msg, info, show_cancel_btn = False): # 显示警告对话框
     msg_box.setDefaultButton(QMessageBox.Ok) # 设置默认按钮
     return_value = msg_box.exec_() # 显示对话框并获取返回值
     if return_value == QMessageBox.Ok: # 如果点击了确认按钮
-        app.quit()
+        msg_box.close()
         return True
     else: # 如果点击了取消按钮
-        app.quit()
+        msg_box.close()
         return False
 
 def info(msg, info, show_cancel_btn = False): # 显示信息对话框
@@ -62,8 +62,8 @@ def info(msg, info, show_cancel_btn = False): # 显示信息对话框
     msg_box.setDefaultButton(QMessageBox.Ok) # 设置默认按钮
     return_value = msg_box.exec_() # 显示对话框并获取返回值
     if return_value == QMessageBox.Ok: # 如果点击了确认按钮
-        app.quit()
+        msg_box.close()
         return True
     else: # 如果点击了取消按钮
-        app.quit()
+        msg_box.close()
         return False
