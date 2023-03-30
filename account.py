@@ -14,7 +14,7 @@ codec = 'UTF-8'
 
 # SHA256 加密
 def encrypt(content):
-    return sha256(content.encode(codec)).hexdigest() # 先将字符串解码为字节流（encode），再进行加密，然后将加密后的字节流进行摘要（hexdigest）
+    return sha256(content.encode(codec)).hexdigest() # 先将字符串编码为字节流（encode），再进行加密，然后将加密后的字节流进行摘要（hexdigest）
 
 
 # 初始化，检查账户文件是否存在，不存在则写入默认账户，返回值为发生的错误信息和是否尝试创建了默认账户
