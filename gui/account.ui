@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>767</width>
-    <height>469</height>
+    <height>335</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>欢迎您使用企业员工业绩管理系统</string>
   </property>
   <widget class="QLineEdit" name="username_line">
    <property name="geometry">
@@ -58,8 +58,8 @@
   <widget class="QPushButton" name="login_btn">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>350</y>
+     <x>30</x>
+     <y>220</y>
      <width>271</width>
      <height>71</height>
     </rect>
@@ -109,13 +109,13 @@
     <string>密码</string>
    </property>
   </widget>
-  <widget class="QLabel" name="tip_label">
+  <widget class="QPushButton" name="change_password_btn">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>320</x>
      <y>220</y>
-     <width>611</width>
-     <height>101</height>
+     <width>201</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
@@ -124,18 +124,27 @@
     </font>
    </property>
    <property name="text">
-    <string>TextLabel</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+    <string>修改密码</string>
    </property>
   </widget>
-  <zorder>username_line</zorder>
-  <zorder>password_line</zorder>
-  <zorder>login_btn</zorder>
-  <zorder>username_label</zorder>
-  <zorder>password_label</zorder>
-  <zorder>tip_label</zorder>
+  <widget class="QPushButton" name="manage_btn">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>220</y>
+     <width>201</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>管理</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
