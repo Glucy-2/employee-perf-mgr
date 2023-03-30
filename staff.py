@@ -57,7 +57,7 @@ def read_file():  # 将文件的内容读出并返回（读取失败返回None�
                 staff['total'] = row[7]
                 staff['rank'] = row[8]
             staff_data.append(staff)  # 将数据加入列表中
-        return staff_data
+        return staff_data # 返回数据
     except FileNotFoundError as e:
         msgbox.error("员工数据文件不存在", "请检查文件是否存在")
         return None
