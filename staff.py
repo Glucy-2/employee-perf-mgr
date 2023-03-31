@@ -52,15 +52,15 @@ def read_file():  # 将文件的内容读出并返回（读取失败返回None�
             staff_data[row[0]]["total"] = row[7]
             staff_data[row[0]]["rank"] = row[8]
         return staff_data  # 返回数据
-    #except FileNotFoundError as e:
-    #    msgbox.error("员工数据文件不存在", "请检查文件是否存在")
-    #    return None
-    #except PermissionError as e:
-    #    msgbox.error("没有读取员工数据文件的权限", "请检查文件权限")
-    #    return None
-    #except Exception as e:
-    #    msgbox.error("读取员工数据文件时发生错误", f"错误信息：{e}")
-    #    return None
+    except FileNotFoundError as e:
+        msgbox.error("员工数据文件不存在", "请检查文件是否存在")
+        return None
+    except PermissionError as e:
+        msgbox.error("没有读取员工数据文件的权限", "请检查文件权限")
+        return None
+    except Exception as e:
+        msgbox.error("读取员工数据文件时发生错误", f"错误信息：{e}")
+        return None
     finally:
         if f:
             f.close()
@@ -79,9 +79,9 @@ def save_file(staff_data):  # 将数据写入文件（写入失败返回错误�
     except PermissionError as e:
         msgbox.error("没有写入员工数据文件的权限", "请检查文件权限")
         return e
-    #except Exception as e:
-    #    msgbox.error("写入员工数据文件时发生错误", f"错误信息：{e}")
-    #    return e
+    except Exception as e:
+        msgbox.error("写入员工数据文件时发生错误", f"错误信息：{e}")
+        return e
     finally:
         if f:
             f.close()
