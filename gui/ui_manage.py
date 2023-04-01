@@ -250,6 +250,9 @@ class Window(QDialog):
                 self.sort_enter()
                 msgbox.info("添加成功", "表格已刷新")
         elif self.mode_edit_radiobtn.isChecked():
+            if self.id_edit.text() not in list(staff_data.keys()):
+                msgbox.error("修改错误", "该工号不存在，请检查模式是否正确")
+                return
             if self.male_radiobtn.isChecked():
                 gender = "Male"
             elif self.female_radiobtn.isChecked():
