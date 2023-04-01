@@ -199,6 +199,11 @@ class Window(QDialog):
                 else False,
             )
         elif ref == "总业绩排名":
+            staff_data = {}
+            for item in self.staff_list:
+                staff_data[item[0]] = item[1]
+                staff_data[item[0]]['rank'] = int(staff_data[item[0]]['rank'])
+            self.staff_list = staff_data.items()
             self.staff_list = sorted(
                 self.staff_list,
                 key=lambda x: x[1]["rank"],
