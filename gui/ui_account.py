@@ -43,8 +43,12 @@ class Window:
             self.change_pwd
         )  # 按了修改密码按钮后开始change_pwd函数
         self.manage_btn.clicked.connect(self.manage)  # 按了显示框按钮后开始manage函数
-        self.username_line.returnPressed.connect(self.return_pressed)  # 用户名输入框中按了回车键后就开始return_pressed函数
-        self.password_line.returnPressed.connect(self.return_pressed)  # 密码输入框中按了回车键后就开始return_pressed函数
+        self.username_line.returnPressed.connect(
+            self.return_pressed
+        )  # 用户名输入框中按了回车键后就开始return_pressed函数
+        self.password_line.returnPressed.connect(
+            self.return_pressed
+        )  # 密码输入框中按了回车键后就开始return_pressed函数
 
     def return_pressed(self):
         if self.login_btn.isEnabled():
