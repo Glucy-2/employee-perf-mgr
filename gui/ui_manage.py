@@ -40,17 +40,17 @@ class Window(QDialog):
         self.name_edit = self.ui.name_edit  # 姓名编辑框
         self.male_radiobtn = self.ui.male_radiobtn  # 男性单选按钮
         self.female_radiobtn = self.ui.female_radiobtn  # 女性单选按钮
-        self.quarter1_perf_doublespinbox = (
-            self.ui.quarter1_perf_doublespinbox
+        self.quarter1_perf_spinbox = (
+            self.ui.quarter1_perf_spinbox
         )  # 第一季度业绩编辑框
-        self.quarter2_perf_doublespinbox = (
-            self.ui.quarter2_perf_doublespinbox
+        self.quarter2_perf_spinbox = (
+            self.ui.quarter2_perf_spinbox
         )  # 第二季度业绩编辑框
-        self.quarter3_perf_doublespinbox = (
-            self.ui.quarter3_perf_doublespinbox
+        self.quarter3_perf_spinbox = (
+            self.ui.quarter3_perf_spinbox
         )  # 第三季度业绩编辑框
-        self.quarter4_perf_doublespinbox = (
-            self.ui.quarter4_perf_doublespinbox
+        self.quarter4_perf_spinbox = (
+            self.ui.quarter4_perf_spinbox
         )  # 第四季度业绩编辑框
         self.all_perf_edit = self.ui.all_perf_edit  # 总业绩编辑框
         self.all_perf_rank_edit = self.ui.all_perf_rank_edit  # 总业绩排名编辑框
@@ -78,16 +78,16 @@ class Window(QDialog):
         self.search_id_btn.clicked.connect(self.search_id)  # 按工号搜索按钮
         self.query_quarter_btn.clicked.connect(self.query_quarter)  # 按季度查询按钮
         self.main_table.itemSelectionChanged.connect(self.table_select)  # 表格选中项改变时触发
-        self.quarter1_perf_doublespinbox.valueChanged.connect(
+        self.quarter1_perf_spinbox.valueChanged.connect(
             self.quater_changed
         )  # 业绩编辑框内容改变时触发
-        self.quarter2_perf_doublespinbox.valueChanged.connect(
+        self.quarter2_perf_spinbox.valueChanged.connect(
             self.quater_changed
         )  # 业绩编辑框内容改变时触发
-        self.quarter3_perf_doublespinbox.valueChanged.connect(
+        self.quarter3_perf_spinbox.valueChanged.connect(
             self.quater_changed
         )  # 业绩编辑框内容改变时触发
-        self.quarter4_perf_doublespinbox.valueChanged.connect(
+        self.quarter4_perf_spinbox.valueChanged.connect(
             self.quater_changed
         )  # 业绩编辑框内容改变时触发
 
@@ -176,19 +176,19 @@ class Window(QDialog):
         return one_staff.getName()
 
     def sort_by_quarter1(self, one_staff):
-        return float(one_staff.getScore()[1])
+        return int(one_staff.getScore()[1])
 
     def sort_by_quarter2(self, one_staff):
-        return float(one_staff.getScore()[2])
+        return int(one_staff.getScore()[2])
 
     def sort_by_quarter3(self, one_staff):
-        return float(one_staff.getScore()[3])
+        return int(one_staff.getScore()[3])
 
     def sort_by_quarter4(self, one_staff):
-        return float(one_staff.getScore()[4])
+        return int(one_staff.getScore()[4])
 
     def sort_by_total(self, one_staff):
-        return float(one_staff.getTotal())
+        return int(one_staff.getTotal())
 
     def sort_by_rank(self, one_staff):
         return int(one_staff.getRank())
@@ -284,15 +284,15 @@ class Window(QDialog):
                         self.name_edit.text(),
                         gender,
                         {
-                            1: self.quarter1_perf_doublespinbox.value(),
-                            2: self.quarter2_perf_doublespinbox.value(),
-                            3: self.quarter3_perf_doublespinbox.value(),
-                            4: self.quarter4_perf_doublespinbox.value(),
+                            1: self.quarter1_perf_spinbox.value(),
+                            2: self.quarter2_perf_spinbox.value(),
+                            3: self.quarter3_perf_spinbox.value(),
+                            4: self.quarter4_perf_spinbox.value(),
                         },
-                        self.quarter1_perf_doublespinbox.value()
-                        + self.quarter2_perf_doublespinbox.value()
-                        + self.quarter3_perf_doublespinbox.value()
-                        + self.quarter4_perf_doublespinbox.value(),
+                        self.quarter1_perf_spinbox.value()
+                        + self.quarter2_perf_spinbox.value()
+                        + self.quarter3_perf_spinbox.value()
+                        + self.quarter4_perf_spinbox.value(),
                         "",
                     )
                 )
@@ -318,17 +318,17 @@ class Window(QDialog):
                     one_staff.setGender(gender)
                     one_staff.setScore(
                         {
-                            1: self.quarter1_perf_doublespinbox.value(),
-                            2: self.quarter2_perf_doublespinbox.value(),
-                            3: self.quarter3_perf_doublespinbox.value(),
-                            4: self.quarter4_perf_doublespinbox.value(),
+                            1: self.quarter1_perf_spinbox.value(),
+                            2: self.quarter2_perf_spinbox.value(),
+                            3: self.quarter3_perf_spinbox.value(),
+                            4: self.quarter4_perf_spinbox.value(),
                         }
                     )
                     one_staff.setTotal(
-                        self.quarter1_perf_doublespinbox.value()
-                        + self.quarter2_perf_doublespinbox.value()
-                        + self.quarter3_perf_doublespinbox.value()
-                        + self.quarter4_perf_doublespinbox.value()
+                        self.quarter1_perf_spinbox.value()
+                        + self.quarter2_perf_spinbox.value()
+                        + self.quarter3_perf_spinbox.value()
+                        + self.quarter4_perf_spinbox.value()
                     )
                     self.staff_list = sorted(
                         self.staff_list, key=self.sort_by_total, reverse=True
@@ -388,19 +388,19 @@ class Window(QDialog):
         try:
             if ref == "第一季度":
                 for one_staff in self.staff_list:
-                    quater_perf.append(float(one_staff.getScore()[1]))
+                    quater_perf.append(int(one_staff.getScore()[1]))
             elif ref == "第二季度":
                 for one_staff in self.staff_list:
-                    quater_perf.append(float(one_staff.getScore()[2]))
+                    quater_perf.append(int(one_staff.getScore()[2]))
             elif ref == "第三季度":
                 for one_staff in self.staff_list:
-                    quater_perf.append(float(one_staff.getScore()[3]))
+                    quater_perf.append(int(one_staff.getScore()[3]))
             elif ref == "第四季度":
                 for one_staff in self.staff_list:
-                    quater_perf.append(float(one_staff.getScore()[4]))
+                    quater_perf.append(int(one_staff.getScore()[4]))
             elif ref == "总业绩":
                 for one_staff in self.staff_list:
-                    quater_perf.append(float(one_staff.getTotal()))
+                    quater_perf.append(int(one_staff.getTotal()))
             else:
                 msgbox.error("查询错误", "季度选择错误，是否已经读取文件？")
                 return
@@ -430,17 +430,17 @@ class Window(QDialog):
                         "性别错误",
                         f"性别数据错误，表格中 {self.main_table.item(row, 0).text()} 的性别数据是否正确（男/女）？",
                     )
-                self.quarter1_perf_doublespinbox.setValue(
-                    float(self.main_table.item(row, 3).text())
+                self.quarter1_perf_spinbox.setValue(
+                    int(self.main_table.item(row, 3).text())
                 )
-                self.quarter2_perf_doublespinbox.setValue(
-                    float(self.main_table.item(row, 4).text())
+                self.quarter2_perf_spinbox.setValue(
+                    int(self.main_table.item(row, 4).text())
                 )
-                self.quarter3_perf_doublespinbox.setValue(
-                    float(self.main_table.item(row, 5).text())
+                self.quarter3_perf_spinbox.setValue(
+                    int(self.main_table.item(row, 5).text())
                 )
-                self.quarter4_perf_doublespinbox.setValue(
-                    float(self.main_table.item(row, 6).text())
+                self.quarter4_perf_spinbox.setValue(
+                    int(self.main_table.item(row, 6).text())
                 )
                 self.all_perf_edit.setText(self.main_table.item(row, 7).text())
                 self.all_perf_rank_edit.setText(self.main_table.item(row, 8).text())
