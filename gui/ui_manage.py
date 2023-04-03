@@ -354,11 +354,11 @@ class Window(QDialog):
             return
         else:
             for sta in self.staff_list:  # 寻找待删除的元素
-                if sta.getNum() == self.id_edit:  # 如果找到相等元素
+                if sta.getNum() == self.id_edit.text():  # 如果找到相等元素
                     self.staff_list.remove(sta)  # 删除对应的元素
+                    self.update()
+                    msgbox.info("删除成功", "表格已刷新")
                     break
-                self.update()
-                msgbox.info("删除成功", "表格已刷新")
             else:
                 msgbox.error("删除错误", "该工号不存在")
                 return
