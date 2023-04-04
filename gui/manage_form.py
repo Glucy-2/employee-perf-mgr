@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os
 from PySide6.QtWidgets import *
-from PySide6.QtCore import QFile
-from PySide6.QtUiTools import QUiLoader
 import file
 from staff import Staff
 from gui import ui_manage
@@ -279,7 +276,7 @@ class Window(QDialog, ui_manage.Ui_Form):
                         + self.quarter2_perf_spinbox.value()
                         + self.quarter3_perf_spinbox.value()
                         + self.quarter4_perf_spinbox.value(),
-                        "",
+                        0,
                     )
                 )
                 self.staff_list = sorted(
@@ -300,6 +297,7 @@ class Window(QDialog, ui_manage.Ui_Form):
                         gender = "Female"
                     else:
                         msgbox.error("添加错误", "性别选择错误")
+                        return
                     one_staff.setName(self.name_edit.text())
                     one_staff.setGender(gender)
                     one_staff.setScore(

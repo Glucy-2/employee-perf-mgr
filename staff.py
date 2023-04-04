@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 class Staff(object):
     # 员工信息类
     def __init__(

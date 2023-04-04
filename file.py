@@ -65,7 +65,7 @@ def save_file(staff_list):  # 将数据写入文件（写入失败返回错误�
     except PermissionError as e:
         msgbox.error("没有写入员工数据文件的权限", "请检查文件权限")
         return e
-    except IOError:
+    except IOError as e:
         msgbox.error("打开员工数据文件时发生错误", "")
         return e
     except Exception as e:

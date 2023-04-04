@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os
 from PySide6.QtWidgets import *
-from PySide6.QtCore import QFile, Qt
-from PySide6.QtUiTools import QUiLoader
 import account
 from gui import ui_account
 from gui import msgbox
