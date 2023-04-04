@@ -19,20 +19,6 @@ class Staff(object):
         self.__total = total  # 总业绩
         self.__rank = rank  # 名次
 
-    def __str__(self):
-        s = "{:<12}{:<12}{:<10}{:<12}{:<12}{:<12}{:<12}{:<12}{:<8}".format(
-            self.__num,
-            self.__name,
-            self.__gender,
-            self.__score[1],
-            self.__score[2],
-            self.__score[3],
-            self.__score[4],
-            self.__total,
-            self.__rank,
-        )
-        return s
-
     def getNum(self):
         return self.__num
 

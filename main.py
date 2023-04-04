@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import account
-from gui import ui_account
+from gui import account_form
 from gui import msgbox
 
 
@@ -14,7 +14,7 @@ def run():  # 运行函数，用于运行程序
             exit()  # 退出程序
         elif init_created:  # 如果创建了默认账户
             msgbox.info("已创建默认账户", "用户名为admin，密码为admin")  # 输出提示信息
-        ui_account.show()  # 显示登录窗口
+        account_form.show()  # 显示登录窗口
     except Exception as e:
         print(e)
     # finally:

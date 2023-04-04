@@ -1,450 +1,223 @@
 # -*- coding: utf-8 -*-
 
-import os
-from PySide6.QtWidgets import *
-from PySide6.QtCore import QFile
-from PySide6.QtUiTools import QUiLoader
-import account
-import file
-from staff import Staff
-from gui import msgbox
+################################################################################
+## Form generated from reading UI file 'manage.ui'
+##
+## Created by: Qt User Interface Compiler version 6.4.3
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QGroupBox,
+    QHeaderView, QLabel, QLineEdit, QPushButton,
+    QRadioButton, QSizePolicy, QSpinBox, QTableWidget,
+    QTableWidgetItem, QWidget)
 
-class Window(QDialog):
-    def __init__(self):
-        super().__init__()
+class Ui_Form(object):
+    def setupUi(self, Form):
+        if not Form.objectName():
+            Form.setObjectName(u"Form")
+        Form.resize(1461, 848)
+        self.main_table = QTableWidget(Form)
+        if (self.main_table.columnCount() < 9):
+            self.main_table.setColumnCount(9)
+        self.main_table.setObjectName(u"main_table")
+        self.main_table.setGeometry(QRect(400, 20, 1051, 801))
+        font = QFont()
+        font.setPointSize(12)
+        self.main_table.setFont(font)
+        self.main_table.setRowCount(0)
+        self.main_table.setColumnCount(9)
+        self.main_table.horizontalHeader().setVisible(True)
+        self.main_table.horizontalHeader().setCascadingSectionResizes(True)
+        self.main_table.horizontalHeader().setDefaultSectionSize(100)
+        self.main_table.horizontalHeader().setStretchLastSection(True)
+        self.main_table.verticalHeader().setVisible(True)
+        self.sort_control_groupbox = QGroupBox(Form)
+        self.sort_control_groupbox.setObjectName(u"sort_control_groupbox")
+        self.sort_control_groupbox.setGeometry(QRect(10, 130, 381, 121))
+        self.sort_control_groupbox.setFont(font)
+        self.sort_ref_combobox = QComboBox(self.sort_control_groupbox)
+        self.sort_ref_combobox.setObjectName(u"sort_ref_combobox")
+        self.sort_ref_combobox.setGeometry(QRect(40, 30, 191, 22))
+        self.label_4 = QLabel(self.sort_control_groupbox)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(10, 30, 31, 21))
+        self.label_4.setFont(font)
+        self.sort_mode_combobox = QComboBox(self.sort_control_groupbox)
+        self.sort_mode_combobox.setObjectName(u"sort_mode_combobox")
+        self.sort_mode_combobox.setGeometry(QRect(240, 30, 68, 22))
+        self.label_5 = QLabel(self.sort_control_groupbox)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(323, 30, 41, 21))
+        self.label_5.setFont(font)
+        self.sort_enter_btn = QPushButton(self.sort_control_groupbox)
+        self.sort_enter_btn.setObjectName(u"sort_enter_btn")
+        self.sort_enter_btn.setGeometry(QRect(240, 60, 121, 41))
+        self.file_groupbox = QGroupBox(Form)
+        self.file_groupbox.setObjectName(u"file_groupbox")
+        self.file_groupbox.setGeometry(QRect(10, 10, 381, 111))
+        self.file_groupbox.setFont(font)
+        self.readfile_btn = QPushButton(self.file_groupbox)
+        self.readfile_btn.setObjectName(u"readfile_btn")
+        self.readfile_btn.setGeometry(QRect(20, 40, 111, 41))
+        self.readfile_btn.setFont(font)
+        self.savefile_btn = QPushButton(self.file_groupbox)
+        self.savefile_btn.setObjectName(u"savefile_btn")
+        self.savefile_btn.setGeometry(QRect(160, 40, 111, 41))
+        self.savefile_btn.setFont(font)
+        self.data_groupbox = QGroupBox(Form)
+        self.data_groupbox.setObjectName(u"data_groupbox")
+        self.data_groupbox.setGeometry(QRect(10, 260, 381, 461))
+        self.data_groupbox.setFont(font)
+        self.label_6 = QLabel(self.data_groupbox)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(20, 30, 54, 21))
+        self.label_7 = QLabel(self.data_groupbox)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(20, 60, 54, 21))
+        self.label_8 = QLabel(self.data_groupbox)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(20, 90, 54, 21))
+        self.mode_add_radiobtn = QRadioButton(self.data_groupbox)
+        self.mode_add_radiobtn.setObjectName(u"mode_add_radiobtn")
+        self.mode_add_radiobtn.setGeometry(QRect(80, 30, 61, 21))
+        self.mode_edit_radiobtn = QRadioButton(self.data_groupbox)
+        self.mode_edit_radiobtn.setObjectName(u"mode_edit_radiobtn")
+        self.mode_edit_radiobtn.setGeometry(QRect(150, 30, 61, 21))
+        self.mode_edit_radiobtn.setChecked(True)
+        self.groupBox_2 = QGroupBox(self.data_groupbox)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setGeometry(QRect(20, 190, 341, 211))
+        self.label_10 = QLabel(self.groupBox_2)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(20, 30, 111, 21))
+        self.label_11 = QLabel(self.groupBox_2)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setGeometry(QRect(20, 60, 111, 21))
+        self.label_12 = QLabel(self.groupBox_2)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setGeometry(QRect(20, 90, 111, 21))
+        self.label_13 = QLabel(self.groupBox_2)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setGeometry(QRect(20, 120, 111, 21))
+        self.label_14 = QLabel(self.groupBox_2)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(20, 150, 111, 21))
+        self.label_15 = QLabel(self.groupBox_2)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setGeometry(QRect(20, 180, 111, 21))
+        self.all_perf_edit = QLineEdit(self.groupBox_2)
+        self.all_perf_edit.setObjectName(u"all_perf_edit")
+        self.all_perf_edit.setGeometry(QRect(120, 150, 181, 21))
+        self.all_perf_edit.setReadOnly(True)
+        self.all_perf_rank_edit = QLineEdit(self.groupBox_2)
+        self.all_perf_rank_edit.setObjectName(u"all_perf_rank_edit")
+        self.all_perf_rank_edit.setGeometry(QRect(120, 180, 181, 21))
+        self.all_perf_rank_edit.setReadOnly(True)
+        self.quarter1_perf_spinbox = QSpinBox(self.groupBox_2)
+        self.quarter1_perf_spinbox.setObjectName(u"quarter1_perf_spinbox")
+        self.quarter1_perf_spinbox.setGeometry(QRect(120, 30, 181, 22))
+        self.quarter2_perf_spinbox = QSpinBox(self.groupBox_2)
+        self.quarter2_perf_spinbox.setObjectName(u"quarter2_perf_spinbox")
+        self.quarter2_perf_spinbox.setGeometry(QRect(120, 60, 181, 22))
+        self.quarter3_perf_spinbox = QSpinBox(self.groupBox_2)
+        self.quarter3_perf_spinbox.setObjectName(u"quarter3_perf_spinbox")
+        self.quarter3_perf_spinbox.setGeometry(QRect(120, 90, 181, 22))
+        self.quarter4_perf_spinbox = QSpinBox(self.groupBox_2)
+        self.quarter4_perf_spinbox.setObjectName(u"quarter4_perf_spinbox")
+        self.quarter4_perf_spinbox.setGeometry(QRect(120, 120, 181, 22))
+        self.id_edit = QLineEdit(self.data_groupbox)
+        self.id_edit.setObjectName(u"id_edit")
+        self.id_edit.setGeometry(QRect(80, 60, 171, 21))
+        self.name_edit = QLineEdit(self.data_groupbox)
+        self.name_edit.setObjectName(u"name_edit")
+        self.name_edit.setGeometry(QRect(80, 90, 171, 21))
+        self.edit_enter_btn = QPushButton(self.data_groupbox)
+        self.edit_enter_btn.setObjectName(u"edit_enter_btn")
+        self.edit_enter_btn.setGeometry(QRect(70, 410, 75, 31))
+        self.edit_del_btn = QPushButton(self.data_groupbox)
+        self.edit_del_btn.setObjectName(u"edit_del_btn")
+        self.edit_del_btn.setGeometry(QRect(154, 410, 121, 31))
+        self.edit_cancel_btn = QPushButton(self.data_groupbox)
+        self.edit_cancel_btn.setObjectName(u"edit_cancel_btn")
+        self.edit_cancel_btn.setGeometry(QRect(280, 410, 75, 31))
+        self.gender_groupbox = QGroupBox(self.data_groupbox)
+        self.gender_groupbox.setObjectName(u"gender_groupbox")
+        self.gender_groupbox.setGeometry(QRect(20, 120, 231, 61))
+        self.male_radiobtn = QRadioButton(self.gender_groupbox)
+        self.male_radiobtn.setObjectName(u"male_radiobtn")
+        self.male_radiobtn.setGeometry(QRect(20, 30, 61, 21))
+        self.female_radiobtn = QRadioButton(self.gender_groupbox)
+        self.female_radiobtn.setObjectName(u"female_radiobtn")
+        self.female_radiobtn.setGeometry(QRect(120, 30, 61, 21))
+        self.search_groupbox = QGroupBox(Form)
+        self.search_groupbox.setObjectName(u"search_groupbox")
+        self.search_groupbox.setGeometry(QRect(10, 730, 381, 91))
+        self.search_groupbox.setFont(font)
+        self.label = QLabel(self.search_groupbox)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(20, 30, 61, 21))
+        self.label_2 = QLabel(self.search_groupbox)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(20, 60, 61, 21))
+        self.id_search_edit = QLineEdit(self.search_groupbox)
+        self.id_search_edit.setObjectName(u"id_search_edit")
+        self.id_search_edit.setGeometry(QRect(80, 30, 201, 21))
+        self.search_id_btn = QPushButton(self.search_groupbox)
+        self.search_id_btn.setObjectName(u"search_id_btn")
+        self.search_id_btn.setGeometry(QRect(290, 30, 75, 24))
+        self.quarter_select_combobox = QComboBox(self.search_groupbox)
+        self.quarter_select_combobox.setObjectName(u"quarter_select_combobox")
+        self.quarter_select_combobox.setGeometry(QRect(80, 60, 201, 22))
+        self.query_quarter_btn = QPushButton(self.search_groupbox)
+        self.query_quarter_btn.setObjectName(u"query_quarter_btn")
+        self.query_quarter_btn.setGeometry(QRect(290, 60, 75, 24))
 
-        # 加载ui文件
-        qfile = QFile(f"{os.path.abspath('.')}/gui/manage.ui")
-        qfile.open(QFile.ReadOnly)
-        qfile.close()
+        self.retranslateUi(Form)
 
-        # 创建ui窗口对象
-        self.ui = QUiLoader().load(qfile)
+        QMetaObject.connectSlotsByName(Form)
+    # setupUi
 
-        # 提取要操作的控件
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"\u5458\u5de5\u4e1a\u7ee9\u7ba1\u7406", None))
+        self.sort_control_groupbox.setTitle(QCoreApplication.translate("Form", u"\u6392\u5e8f", None))
+        self.label_4.setText(QCoreApplication.translate("Form", u"\u6309", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u"\u6392\u5e8f", None))
+        self.sort_enter_btn.setText(QCoreApplication.translate("Form", u"\u5e94\u7528", None))
+        self.file_groupbox.setTitle(QCoreApplication.translate("Form", u"\u6587\u4ef6", None))
+        self.readfile_btn.setText(QCoreApplication.translate("Form", u"\u8bfb\u53d6", None))
+        self.savefile_btn.setText(QCoreApplication.translate("Form", u"\u4fdd\u5b58", None))
+        self.data_groupbox.setTitle(QCoreApplication.translate("Form", u"\u6dfb\u52a0/\u4fee\u6539\u6570\u636e", None))
+        self.label_6.setText(QCoreApplication.translate("Form", u"\u6a21\u5f0f\uff1a", None))
+        self.label_7.setText(QCoreApplication.translate("Form", u"\u5de5\u53f7\uff1a", None))
+        self.label_8.setText(QCoreApplication.translate("Form", u"\u59d3\u540d\uff1a", None))
+        self.mode_add_radiobtn.setText(QCoreApplication.translate("Form", u"\u6dfb\u52a0", None))
+        self.mode_edit_radiobtn.setText(QCoreApplication.translate("Form", u"\u4fee\u6539", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Form", u"\u4e1a\u7ee9", None))
+        self.label_10.setText(QCoreApplication.translate("Form", u"\u7b2c\u4e00\u5b63\u5ea6\uff1a", None))
+        self.label_11.setText(QCoreApplication.translate("Form", u"\u7b2c\u4e8c\u5b63\u5ea6\uff1a", None))
+        self.label_12.setText(QCoreApplication.translate("Form", u"\u7b2c\u4e09\u5b63\u5ea6\uff1a", None))
+        self.label_13.setText(QCoreApplication.translate("Form", u"\u7b2c\u56db\u5b63\u5ea6\uff1a", None))
+        self.label_14.setText(QCoreApplication.translate("Form", u"\u603b\u4e1a\u7ee9\uff1a", None))
+        self.label_15.setText(QCoreApplication.translate("Form", u"\u603b\u4e1a\u7ee9\u6392\u540d\uff1a", None))
+        self.edit_enter_btn.setText(QCoreApplication.translate("Form", u"\u786e\u5b9a", None))
+        self.edit_del_btn.setText(QCoreApplication.translate("Form", u"\u5220\u9664\u8fd9\u4e2a\u5458\u5de5", None))
+        self.edit_cancel_btn.setText(QCoreApplication.translate("Form", u"\u53d6\u6d88", None))
+        self.gender_groupbox.setTitle(QCoreApplication.translate("Form", u"\u6027\u522b", None))
+        self.male_radiobtn.setText(QCoreApplication.translate("Form", u"\u7537", None))
+        self.female_radiobtn.setText(QCoreApplication.translate("Form", u"\u5973", None))
+        self.search_groupbox.setTitle(QCoreApplication.translate("Form", u"\u641c\u7d22\u67e5\u8be2", None))
+        self.label.setText(QCoreApplication.translate("Form", u"\u5de5\u53f7\uff1a", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"\u5b63\u5ea6\uff1a", None))
+        self.search_id_btn.setText(QCoreApplication.translate("Form", u"\u641c\u7d22", None))
+        self.query_quarter_btn.setText(QCoreApplication.translate("Form", u"\u67e5\u8be2", None))
+    # retranslateUi
 
-        # “文件”组
-        self.readfile_btn = self.ui.readfile_btn  # 读取按钮
-        self.savefile_btn = self.ui.savefile_btn  # 保存按钮
-
-        # “排序”组
-        self.sort_ref_combobox = self.ui.sort_ref_combobox  # 排序参考下拉框
-        self.sort_mode_combobox = self.ui.sort_mode_combobox  # 排序顺序下拉框
-        self.sort_enter_btn = self.ui.sort_enter_btn  # 应用按钮
-
-        # “添加/修改数据”组
-        self.mode_add_radiobtn = self.ui.mode_add_radiobtn  # 添加模式单选按钮
-        self.mode_edit_radiobtn = self.ui.mode_edit_radiobtn  # 修改模式单选按钮
-        self.id_edit = self.ui.id_edit  # 工号编辑框
-        self.name_edit = self.ui.name_edit  # 姓名编辑框
-        self.male_radiobtn = self.ui.male_radiobtn  # 男性单选按钮
-        self.female_radiobtn = self.ui.female_radiobtn  # 女性单选按钮
-        self.quarter1_perf_spinbox = (
-            self.ui.quarter1_perf_spinbox
-        )  # 第一季度业绩编辑框
-        self.quarter2_perf_spinbox = (
-            self.ui.quarter2_perf_spinbox
-        )  # 第二季度业绩编辑框
-        self.quarter3_perf_spinbox = (
-            self.ui.quarter3_perf_spinbox
-        )  # 第三季度业绩编辑框
-        self.quarter4_perf_spinbox = (
-            self.ui.quarter4_perf_spinbox
-        )  # 第四季度业绩编辑框
-        self.all_perf_edit = self.ui.all_perf_edit  # 总业绩编辑框
-        self.all_perf_rank_edit = self.ui.all_perf_rank_edit  # 总业绩排名编辑框
-        self.edit_enter_btn = self.ui.edit_enter_btn  # 确定按钮
-        self.edit_del_btn = self.ui.edit_del_btn  # 删除员工按钮
-        self.edit_cancel_btn = self.ui.edit_cancel_btn  # 取消按钮
-
-        # “搜索查询查询”组
-        self.id_search_edit = self.ui.id_search_edit  # 工号搜索框
-        self.quarter_select_combobox = self.ui.quarter_select_combobox  # 季度下拉框
-        self.search_id_btn = self.ui.search_id_btn  # 按工号搜索按钮
-        self.query_quarter_btn = self.ui.query_quarter_btn  # 按季度查询按钮
-
-        # 主表格
-        self.main_table = self.ui.main_table  # 表格
-        self.main_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设置表格不可编辑
-
-        # 绑定信号与槽函数
-        self.readfile_btn.clicked.connect(self.read)  # 读取文件按钮
-        self.savefile_btn.clicked.connect(self.save)  # 保存文件按钮
-        self.sort_enter_btn.clicked.connect(self.sort_enter)  # 排序应用按钮
-        self.edit_enter_btn.clicked.connect(self.edit_enter)  # 编辑确定按钮
-        self.edit_del_btn.clicked.connect(self.edit_del)  # 编辑删除按钮
-        self.edit_cancel_btn.clicked.connect(self.edit_cancel)  # 编辑取消按钮
-        self.search_id_btn.clicked.connect(self.search_id)  # 按工号搜索按钮
-        self.query_quarter_btn.clicked.connect(self.query_quarter)  # 按季度查询按钮
-        self.main_table.itemSelectionChanged.connect(self.table_select)  # 表格选中项改变时触发
-        self.quarter1_perf_spinbox.valueChanged.connect(
-            self.quater_changed
-        )  # 业绩编辑框内容改变时触发
-        self.quarter2_perf_spinbox.valueChanged.connect(
-            self.quater_changed
-        )  # 业绩编辑框内容改变时触发
-        self.quarter3_perf_spinbox.valueChanged.connect(
-            self.quater_changed
-        )  # 业绩编辑框内容改变时触发
-        self.quarter4_perf_spinbox.valueChanged.connect(
-            self.quater_changed
-        )  # 业绩编辑框内容改变时触发
-
-    def update(self):  # 读取变量写表格
-        self.main_table.setHorizontalHeaderLabels(
-            [
-                "工号",
-                "姓名",
-                "性别",
-                "第一季度的业绩",
-                "第二季度的业绩",
-                "第三季度的业绩",
-                "第四季度的业绩",
-                "总业绩",
-                "总业绩排名",
-            ]
-        )  # 设置表头文字
-        self.main_table.setRowCount(len(self.staff_list))  # 设置表格行数
-        row = 0  # 行号
-        for one_staff in self.staff_list:  # 逐条写入数据到表格
-            self.main_table.setItem(row, 0, QTableWidgetItem(one_staff.getNum()))
-            self.main_table.setItem(row, 1, QTableWidgetItem(one_staff.getName()))
-            if one_staff.getGender() == "Male":
-                self.main_table.setItem(row, 2, QTableWidgetItem("男"))
-            elif one_staff.getGender() == "Female":
-                self.main_table.setItem(row, 2, QTableWidgetItem("女"))
-            else:
-                self.main_table.setItem(row, 2, QTableWidgetItem("未知"))
-            self.main_table.setItem(
-                row, 3, QTableWidgetItem(str(one_staff.getScore()[1]))
-            )
-            self.main_table.setItem(
-                row, 4, QTableWidgetItem(str(one_staff.getScore()[2]))
-            )
-            self.main_table.setItem(
-                row, 5, QTableWidgetItem(str(one_staff.getScore()[3]))
-            )
-            self.main_table.setItem(
-                row, 6, QTableWidgetItem(str(one_staff.getScore()[4]))
-            )
-            self.main_table.setItem(row, 7, QTableWidgetItem(str(one_staff.getTotal())))
-            self.main_table.setItem(row, 8, QTableWidgetItem(str(one_staff.getRank())))
-            row += 1
-
-    def read(self):
-        self.staff_list = []  # 清空员工列表
-        all_num = file.read_file(self.staff_list)  # 读取文件
-        if all_num:
-            self.update()
-            self.sort_ref_combobox.setCurrentIndex(0)  # 重置排序参考下拉框
-            self.sort_ref_combobox.addItem("工号")
-            self.sort_ref_combobox.addItem("姓名")
-            self.sort_ref_combobox.addItem("第一季度业绩")
-            self.sort_ref_combobox.addItem("第二季度业绩")
-            self.sort_ref_combobox.addItem("第三季度业绩")
-            self.sort_ref_combobox.addItem("第四季度业绩")
-            self.sort_ref_combobox.addItem("总业绩")
-            self.sort_ref_combobox.addItem("总业绩排名")
-            self.sort_mode_combobox.setCurrentIndex(0)  # 重置排序顺序下拉框
-            self.sort_mode_combobox.addItem("升序")
-            self.sort_mode_combobox.addItem("降序")
-            self.quarter_select_combobox.setCurrentIndex(0)  # 重置季度选择下拉框
-            self.quarter_select_combobox.addItem("第一季度")
-            self.quarter_select_combobox.addItem("第二季度")
-            self.quarter_select_combobox.addItem("第三季度")
-            self.quarter_select_combobox.addItem("第四季度")
-            self.quarter_select_combobox.addItem("总业绩")
-            msgbox.info(
-                "读取成功",
-                f"成功读取 {len(self.staff_list)} 条数据\n修改数据请在左侧修改，表格不可修改但自动更新\n修改后记得保存",
-            )
-            self.main_table.resizeColumnsToContents()  # 自动调整列宽
-            self.main_table.resizeRowsToContents()  # 自动调整行高
-        else:
-            msgbox.error("读取失败", "文件不存在或文件内容为空或者错误")
-
-    def save(self):
-        result = file.save_file(self.staff_list)
-        if result is None:  # 没出错（出错了会由file.save_file自己弹窗）
-            msgbox.info("保存成功", f"成功保存 {len(self.staff_list)} 条数据")
-
-    def sort_by_id(self, one_staff):
-        return one_staff.getNum()
-
-    def sort_by_name(self, one_staff):
-        return one_staff.getName()
-
-    def sort_by_quarter1(self, one_staff):
-        return int(one_staff.getScore()[1])
-
-    def sort_by_quarter2(self, one_staff):
-        return int(one_staff.getScore()[2])
-
-    def sort_by_quarter3(self, one_staff):
-        return int(one_staff.getScore()[3])
-
-    def sort_by_quarter4(self, one_staff):
-        return int(one_staff.getScore()[4])
-
-    def sort_by_total(self, one_staff):
-        return int(one_staff.getTotal())
-
-    def sort_by_rank(self, one_staff):
-        return int(one_staff.getRank())
-
-    def sort_enter(self):
-        ref = self.sort_ref_combobox.currentText()
-        if ref == "工号":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_id,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        elif ref == "姓名":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_name,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        elif ref == "第一季度业绩":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_quarter1,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        elif ref == "第二季度业绩":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_quarter2,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        elif ref == "第三季度业绩":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_quarter3,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        elif ref == "第四季度业绩":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_quarter4,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        elif ref == "总业绩":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_total,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        elif ref == "总业绩排名":
-            self.staff_list = sorted(
-                self.staff_list,
-                key=self.sort_by_rank,
-                reverse=True
-                if self.sort_mode_combobox.currentText() == "降序"
-                else False,
-            )
-        else:
-            msgbox.error("排序错误", "排序参考选择错误，是否已经读取文件？")
-            return
-        self.update()
-
-    def edit_enter(self):
-        if self.mode_add_radiobtn.isChecked():
-            for one_staff in self.staff_list:
-                if one_staff.getNum() == self.id_edit.text():
-                    msgbox.error("添加错误", "该工号已存在")
-                    return
-            else:
-                if self.male_radiobtn.isChecked():
-                    gender = "Male"
-                elif self.female_radiobtn.isChecked():
-                    gender = "Female"
-                else:
-                    msgbox.error("添加失败", "性别选择错误")
-                    return
-                self.staff_list.append(
-                    Staff(
-                        self.id_edit.text(),
-                        self.name_edit.text(),
-                        gender,
-                        {
-                            1: self.quarter1_perf_spinbox.value(),
-                            2: self.quarter2_perf_spinbox.value(),
-                            3: self.quarter3_perf_spinbox.value(),
-                            4: self.quarter4_perf_spinbox.value(),
-                        },
-                        self.quarter1_perf_spinbox.value()
-                        + self.quarter2_perf_spinbox.value()
-                        + self.quarter3_perf_spinbox.value()
-                        + self.quarter4_perf_spinbox.value(),
-                        "",
-                    )
-                )
-                self.staff_list = sorted(
-                    self.staff_list, key=self.sort_by_total, reverse=True
-                )
-                rank = 1
-                for one_sta in self.staff_list:
-                    one_sta.setRank(str(rank))
-                    rank += 1
-                self.sort_enter()
-                msgbox.info("添加成功", "表格已刷新")
-        elif self.mode_edit_radiobtn.isChecked():
-            for one_staff in self.staff_list:
-                if one_staff.getNum() == self.id_edit.text():
-                    if self.male_radiobtn.isChecked():
-                        gender = "Male"
-                    elif self.female_radiobtn.isChecked():
-                        gender = "Female"
-                    else:
-                        msgbox.error("添加错误", "性别选择错误")
-                    one_staff.setName(self.name_edit.text())
-                    one_staff.setGender(gender)
-                    one_staff.setScore(
-                        {
-                            1: self.quarter1_perf_spinbox.value(),
-                            2: self.quarter2_perf_spinbox.value(),
-                            3: self.quarter3_perf_spinbox.value(),
-                            4: self.quarter4_perf_spinbox.value(),
-                        }
-                    )
-                    one_staff.setTotal(
-                        self.quarter1_perf_spinbox.value()
-                        + self.quarter2_perf_spinbox.value()
-                        + self.quarter3_perf_spinbox.value()
-                        + self.quarter4_perf_spinbox.value()
-                    )
-                    self.staff_list = sorted(
-                        self.staff_list, key=self.sort_by_total, reverse=True
-                    )
-                    rank = 1
-                    for one_sta in self.staff_list:
-                        one_sta.setRank(str(rank))
-                        rank += 1
-                    self.sort_enter()
-                    msgbox.info("修改成功", "表格已刷新")
-                    break
-                else:
-                    print(self.id_edit.text())
-            else:
-                msgbox.error("修改错误", "该工号不存在，请检查模式是否正确")
-                return
-        else:
-            msgbox.error("错误", "请选择添加/修改模式")
-
-    def edit_del(self):
-        if self.id_edit.text() == "":
-            msgbox.error("错误", "请输入工号")
-            return
-        else:
-            for sta in self.staff_list:  # 寻找待删除的元素
-                if sta.getNum() == self.id_edit.text():  # 如果找到相等元素
-                    self.staff_list.remove(sta)  # 删除对应的元素
-                    self.update()
-                    msgbox.info("删除成功", "表格已刷新")
-                    break
-            else:
-                msgbox.error("删除错误", "该工号不存在")
-                return
-
-    def edit_cancel(self):
-        self.table_select()
-
-    def search_id(self):
-        ref = self.id_search_edit.text()
-        if ref == "":
-            msgbox.error("查询错误", "请输入工号")
-            return
-        else:
-            for one_staff in self.staff_list:
-                if one_staff.getNum() == ref:
-                    self.table_select()
-                    self.main_table.selectRow(list(self.staff_list).index(one_staff))
-                    msgbox.info("查询成功", "已选中该员工所在行")
-                    return
-            else:
-                msgbox.error("查询错误", "该工号不存在")
-            return
-
-    def query_quarter(self):
-        ref = self.quarter_select_combobox.currentText()
-        quater_perf = []
-        try:
-            if ref == "第一季度":
-                for one_staff in self.staff_list:
-                    quater_perf.append(int(one_staff.getScore()[1]))
-            elif ref == "第二季度":
-                for one_staff in self.staff_list:
-                    quater_perf.append(int(one_staff.getScore()[2]))
-            elif ref == "第三季度":
-                for one_staff in self.staff_list:
-                    quater_perf.append(int(one_staff.getScore()[3]))
-            elif ref == "第四季度":
-                for one_staff in self.staff_list:
-                    quater_perf.append(int(one_staff.getScore()[4]))
-            elif ref == "总业绩":
-                for one_staff in self.staff_list:
-                    quater_perf.append(int(one_staff.getTotal()))
-            else:
-                msgbox.error("查询错误", "季度选择错误，是否已经读取文件？")
-                return
-        except ValueError:
-            msgbox.error("查询错误", "业绩数据格式错误，请检查业绩是否均为整数")
-            return
-        msgbox.info(
-            "查询结果",
-            f"{ref}：\n平均业绩：{sum(quater_perf)/len(quater_perf)}\n最高业绩：{max(quater_perf)}\n最低业绩：{min(quater_perf)}",
-        )
-
-    def table_select(self):
-        if self.mode_edit_radiobtn.isChecked():
-            selected_items = self.main_table.selectedItems()  # 获取选中的单元格列表
-            if selected_items:
-                row = selected_items[0].row()  # 获取选中的单元格的第一行
-                self.id_edit.setText(self.main_table.item(row, 0).text())
-                self.name_edit.setText(self.main_table.item(row, 1).text())
-                if self.main_table.item(row, 2).text() == "男":
-                    self.male_radiobtn.setChecked(True)
-                    self.female_radiobtn.setChecked(False)
-                elif self.main_table.item(row, 2).text() == "女":
-                    self.male_radiobtn.setChecked(False)
-                    self.female_radiobtn.setChecked(True)
-                else:
-                    msgbox.error(
-                        "性别错误",
-                        f"性别数据错误，表格中 {self.main_table.item(row, 0).text()} 的性别数据是否正确（男/女）？",
-                    )
-                self.quarter1_perf_spinbox.setValue(
-                    int(self.main_table.item(row, 3).text())
-                )
-                self.quarter2_perf_spinbox.setValue(
-                    int(self.main_table.item(row, 4).text())
-                )
-                self.quarter3_perf_spinbox.setValue(
-                    int(self.main_table.item(row, 5).text())
-                )
-                self.quarter4_perf_spinbox.setValue(
-                    int(self.main_table.item(row, 6).text())
-                )
-                self.all_perf_edit.setText(self.main_table.item(row, 7).text())
-                self.all_perf_rank_edit.setText(self.main_table.item(row, 8).text())
-
-    def quater_changed(self):
-        self.all_perf_edit.setText("添加或修改后计算")
-        self.all_perf_rank_edit.setText("添加或修改后计算")
