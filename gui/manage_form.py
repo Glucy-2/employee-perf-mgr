@@ -337,9 +337,11 @@ class Window(QDialog, ui_manage.Ui_Form):
         else:
             for sta in self.staff_list:  # 寻找待删除的元素
                 if sta.getNum() == self.id_edit.text():  # 如果找到相等元素
-                    self.staff_list.remove(sta)  # 删除对应的元素
-                    self.update()
-                    msgbox.info("删除成功", "表格已刷新")
+                    action = msgbox.warning("删除确认", f"确认删除员工 {sta.getNum()} ？",show_cancel_btn=True)
+                    if action:
+                        self.staff_list.remove(sta)  # 删除对应的元素
+                        self.update()
+                        msgbox.info("删除成功", "表格已刷新")
                     break
             else:
                 msgbox.error("删除错误", "该工号不存在")
